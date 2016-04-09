@@ -22,6 +22,7 @@ import static org.opencv.imgcodecs.Imgcodecs.imread;
 public class Gamma {
     static BufferedImage adjust(String imagePath,double gamma)
     {
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         double invGamma = 1.0/gamma;
         BufferedImage image = null;
         try{
@@ -53,19 +54,6 @@ public class Gamma {
             }
         }
         return gammaCorrected;
-    }
-    public static void main(String args[])
-    {
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        double gamma  = 2.5;
-        BufferedImage output = adjust("/home/arjun/Pictures/dsc_0278.jpg",gamma);
-        File outputfile = new File("image3.png");
-        try{
-            ImageIO.write(output, "png", outputfile);
-        }catch(IOException e)
-        {
-            e.printStackTrace();
-        }
     }
     
 }
