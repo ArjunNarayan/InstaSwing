@@ -54,12 +54,13 @@ public class Gamma {
         }
         return gammaCorrected;
     }
+    //Only for testing will be removed later
     public static void main(String args[])
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         double gamma  = 2.5;
-        BufferedImage output = adjust("/home/arjun/Pictures/dsc_0278.jpg",gamma);
-        File outputfile = new File("image3.png");
+        BufferedImage output = adjust("/home/arjun/Pictures/Lenna.png",gamma);
+        File outputfile = new File("image3_1.png");
         try{
             ImageIO.write(output, "png", outputfile);
         }catch(IOException e)

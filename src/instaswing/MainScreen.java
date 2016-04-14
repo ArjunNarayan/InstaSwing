@@ -55,7 +55,6 @@ public class MainScreen extends javax.swing.JFrame {
 
         jMenuItem2.setText("Exit");
         jMenu1.add(jMenuItem2);
-        jMenuItem2.getAccessibleContext().setAccessibleName("Exit");
 
         jMenuBar1.add(jMenu1);
 

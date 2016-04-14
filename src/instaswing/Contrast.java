@@ -34,12 +34,13 @@ public class Contrast {
         new_image.get(0, 0,data);
         return outputImage;
     }
+    //Only for testing will be removed later
     public static void main(String args[])
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        double alpha  = 3.55;
+        double alpha  = 1.55;
         BufferedImage output = adjust("/home/arjun/Pictures/Lenna.png",alpha);
-        File outputfile = new File("image.png");
+        File outputfile = new File("image_1_1.png");
         try{
             ImageIO.write(output, "png", outputfile);
         }catch(IOException e)
