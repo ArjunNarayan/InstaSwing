@@ -13,6 +13,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -20,15 +23,40 @@ import javax.swing.JFileChooser;
  */
 public class MainScreen extends javax.swing.JFrame {
 
-    File userImage;
+   
+    BufferedImage userImage;
     String userImagePath;
-    
+    String outputImagePath;
+    BufferedImage output;
+    BufferedImage outputPreview;
+    boolean imageEdited = false;
+    boolean imageSaved = false;
+    MainScreen mainscreen;
     /**
      * Creates new form MainScreen
      */
     public MainScreen() {
         initComponents();
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if(!imageSaved){
+                    if (JOptionPane.showConfirmDialog(mainscreen, 
+                        "You have unsaved changes! Save them?", "Really Closing?", 
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                        saveImage();
+                            System.exit(0);
+            
+                    }
+                    else
+                        new File("savedImage.png").delete();
+                }
+            }
+        });
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,6 +115,11 @@ public class MainScreen extends javax.swing.JFrame {
         saveButton.setMinimumSize(new java.awt.Dimension(90, 35));
         saveButton.setPreferredSize(new java.awt.Dimension(90, 35));
         saveButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
         jToolBar1.add(saveButton);
 
         helpButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -233,16 +266,17 @@ public class MainScreen extends javax.swing.JFrame {
       int rVal = chooser.showOpenDialog(this);
       if (rVal == JFileChooser.APPROVE_OPTION) {
           try{
-              userImage = chooser.getSelectedFile();
-              BufferedImage image = ImageIO.read(userImage);
-              BufferedImage resizedImage = resize(image, 640, 480);
+              File image = chooser.getSelectedFile();
+              userImage = ImageIO.read(image);
+              BufferedImage resizedImage = resize(userImage, 640, 480);
               ImageIcon imageIcon = new ImageIcon(resizedImage);
               imageLabel.setIcon(imageIcon);
-              userImagePath = userImage.getAbsolutePath();
+              userImagePath = image.getAbsolutePath();
           }
           catch(IOException e){
               e.printStackTrace();
           }
+          imageEdited = false;
         
       }
       if (rVal == JFileChooser.CANCEL_OPTION) {
@@ -252,40 +286,89 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void brightnessOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brightnessOKButtonActionPerformed
 
-        BufferedImage output = Brightness.adjust(userImagePath, brightnessSlider.getValue());
-        output = resize(output, 640, 480);
-        ImageIcon imageIcon = new ImageIcon(output);
+        if(!imageEdited){
+            output = Brightness.adjust(userImagePath, brightnessSlider.getValue());
+            saveImage();
+            imageEdited = true;
+        }
+        else{
+            File image = new File("savedImage.png");
+            outputImagePath = image.getAbsolutePath();
+            output = Brightness.adjust(outputImagePath, brightnessSlider.getValue());
+            saveImage();
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_brightnessOKButtonActionPerformed
 
     private void sharpnessOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sharpnessOKButtonActionPerformed
         
-        BufferedImage output = Sharpeness.adjust(userImagePath, sharpnessSlider.getValue());
-        output = resize(output, 640, 480);
-        ImageIcon imageIcon = new ImageIcon(output);
+        if(!imageEdited){
+            output = Sharpeness.adjust(userImagePath, sharpnessSlider.getValue());
+            saveImage();
+            imageEdited = true;
+        }
+        else{
+            File image = new File("savedImage.png");
+            outputImagePath = image.getAbsolutePath();
+            output = Sharpeness.adjust(outputImagePath, sharpnessSlider.getValue());
+            saveImage();
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_sharpnessOKButtonActionPerformed
 
     private void gammaOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gammaOKButtonActionPerformed
         
-        BufferedImage output = Gamma.adjust(userImagePath, gammaSlider.getValue());
-        output = resize(output, 640, 480);
-        ImageIcon imageIcon = new ImageIcon(output);
+        if(!imageEdited){
+            output = Gamma.adjust(userImage, gammaSlider.getValue());
+            imageEdited = true;
+        }
+        else
+            output = Gamma.adjust(output, gammaSlider.getValue());
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_gammaOKButtonActionPerformed
 
     private void contrastOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrastOKButtonActionPerformed
        
-        BufferedImage output = Contrast.adjust(userImagePath, contrastSlider.getValue());
-        output = resize(output, 640, 480);
-        ImageIcon imageIcon = new ImageIcon(output);
+        if(!imageEdited){
+            output = Contrast.adjust(userImagePath, contrastSlider.getValue());
+            saveImage();
+            imageEdited = true;
+        }
+        else{
+            File image = new File("savedImage.png");
+            outputImagePath = image.getAbsolutePath();
+            output = Contrast.adjust(outputImagePath, contrastSlider.getValue());
+            saveImage();
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_contrastOKButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        
+       try{
+           File outputImage = new File("savedImage.png");
+           ImageIO.write(output, "png", outputImage);
+           imageSaved = true;
+       }
+       catch(IOException e){
+           e.printStackTrace();
+       }
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -315,16 +398,31 @@ public class MainScreen extends javax.swing.JFrame {
                 new MainScreen().setVisible(true);
             }
         });
+        
+        
     }
     
     public static BufferedImage resize(BufferedImage image, int width, int height) {
-    BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-    Graphics2D g2d = (Graphics2D) bufferedImage.createGraphics();
-    g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-    g2d.drawImage(image, 0, 0, width, height, null);
-    g2d.dispose();
-    return bufferedImage;
-}
+        
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = (Graphics2D) bufferedImage.createGraphics();
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(image, 0, 0, width, height, null);
+        g2d.dispose();
+        return bufferedImage;
+    }
+    
+    public void saveImage(){
+        
+            try{
+                File outputImage = new File("savedImage.png");
+                ImageIO.write(output, "png", outputImage);
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel brightnessLabel;

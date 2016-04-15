@@ -7,31 +7,17 @@ package instaswing;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.lang.Math;
 import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import static org.opencv.imgcodecs.Imgcodecs.imread;
 
 /**
  *
  * @author arjun
  */
 public class Gamma {
-    static BufferedImage adjust(String imagePath,double gamma)
+    static BufferedImage adjust(BufferedImage image,double gamma)
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         double invGamma = 1.0/gamma;
-        BufferedImage image = null;
-        try{
-            BufferedImage imageIO;
-            image = ImageIO.read(new File(imagePath));
-        }catch(IOException e)
-        {
-            e.printStackTrace();
-        }
         int width = image.getWidth();
         int height = image.getHeight();
         BufferedImage gammaCorrected = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
