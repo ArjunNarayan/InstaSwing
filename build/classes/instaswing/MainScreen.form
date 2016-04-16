@@ -215,12 +215,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="brightnessSlider">
+      <Properties>
+        <Property name="minimum" type="int" value="1"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="sharpnessSlider">
       <Properties>
         <Property name="maximum" type="int" value="16"/>
         <Property name="paintTicks" type="boolean" value="true"/>
-        <Property name="value" type="int" value="8"/>
+        <Property name="value" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="shaprnessLabel">
@@ -272,7 +275,7 @@
     <Component class="javax.swing.JSlider" name="gammaSlider">
       <Properties>
         <Property name="maximum" type="int" value="10"/>
-        <Property name="value" type="int" value="5"/>
+        <Property name="value" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="shaprnessLabel1">

@@ -7,6 +7,7 @@ package instaswing;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+import jdk.nashorn.internal.parser.TokenType;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import static org.opencv.imgcodecs.Imgcodecs.imread;
@@ -18,6 +19,12 @@ import static org.opencv.imgcodecs.Imgcodecs.imread;
 public class Brightness {
     public static BufferedImage adjust(BufferedImage bi,int beta)
     {
+        if(beta == 50)
+            beta = 0;
+        else if (beta < 50)
+            beta = -(100/beta)*10;
+        else
+            beta = (beta/25)*10;
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Mat image = Utility.bufferedToMat(bi);
         Mat new_image = Mat.zeros(image.size(), image.type());

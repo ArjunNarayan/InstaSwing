@@ -18,7 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
 
 
 /**
@@ -142,9 +141,11 @@ public class MainScreen extends javax.swing.JFrame {
         brightnessLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         brightnessLabel.setText("Brightness");
 
+        brightnessSlider.setMinimum(1);
+
         sharpnessSlider.setMaximum(16);
         sharpnessSlider.setPaintTicks(true);
-        sharpnessSlider.setValue(8);
+        sharpnessSlider.setValue(0);
 
         shaprnessLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         shaprnessLabel.setText("Sharpness");
@@ -177,7 +178,7 @@ public class MainScreen extends javax.swing.JFrame {
         });
 
         gammaSlider.setMaximum(10);
-        gammaSlider.setValue(5);
+        gammaSlider.setValue(0);
 
         shaprnessLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         shaprnessLabel1.setText("Gamma");
