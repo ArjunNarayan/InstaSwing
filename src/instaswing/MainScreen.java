@@ -5,6 +5,7 @@
  */
 package instaswing;
 
+import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
@@ -15,6 +16,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 
 
 /**
@@ -280,22 +284,19 @@ public class MainScreen extends javax.swing.JFrame {
         
       }
       if (rVal == JFileChooser.CANCEL_OPTION) {
-        
+        Mat mat = Utility.bufferedToMat(userImage);
+              BufferedImage bi = Utility.matToBuffered(mat);
       }
     }//GEN-LAST:event_openButtonActionPerformed
 
     private void brightnessOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brightnessOKButtonActionPerformed
 
         if(!imageEdited){
-            output = Brightness.adjust(userImagePath, brightnessSlider.getValue());
-            saveImage();
+            output = Brightness.adjust(userImage, brightnessSlider.getValue());
             imageEdited = true;
         }
         else{
-            File image = new File("savedImage.png");
-            outputImagePath = image.getAbsolutePath();
-            output = Brightness.adjust(outputImagePath, brightnessSlider.getValue());
-            saveImage();
+            output = Brightness.adjust(output, brightnessSlider.getValue());
         }
         outputPreview = resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -305,15 +306,12 @@ public class MainScreen extends javax.swing.JFrame {
     private void sharpnessOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sharpnessOKButtonActionPerformed
         
         if(!imageEdited){
-            output = Sharpeness.adjust(userImagePath, sharpnessSlider.getValue());
-            saveImage();
+            output = Sharpeness.adjust(userImage, sharpnessSlider.getValue());
             imageEdited = true;
         }
         else{
-            File image = new File("savedImage.png");
-            outputImagePath = image.getAbsolutePath();
-            output = Sharpeness.adjust(outputImagePath, sharpnessSlider.getValue());
-            saveImage();
+
+            output = Sharpeness.adjust(output, sharpnessSlider.getValue());
         }
         outputPreview = resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -336,15 +334,11 @@ public class MainScreen extends javax.swing.JFrame {
     private void contrastOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrastOKButtonActionPerformed
        
         if(!imageEdited){
-            output = Contrast.adjust(userImagePath, contrastSlider.getValue());
-            saveImage();
+            output = Contrast.adjust(userImage, contrastSlider.getValue());
             imageEdited = true;
         }
         else{
-            File image = new File("savedImage.png");
-            outputImagePath = image.getAbsolutePath();
-            output = Contrast.adjust(outputImagePath, contrastSlider.getValue());
-            saveImage();
+            output = Contrast.adjust(output, contrastSlider.getValue());
         }
         outputPreview = resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -393,6 +387,8 @@ public class MainScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainScreen().setVisible(true);

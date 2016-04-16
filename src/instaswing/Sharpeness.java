@@ -24,16 +24,14 @@ import org.opencv.imgproc.Imgproc;
  * @author arjun
  */
 public class Sharpeness {
-    public static BufferedImage adjust(String ImagePath,int beta)
+    public static BufferedImage adjust(BufferedImage bi,int beta)
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat image = imread(ImagePath);
+        Mat image = Utility.bufferedToMat(bi);
         Mat destination = destination = new Mat(image.rows(),image.cols(),image.type());
 	Imgproc.GaussianBlur(image, destination, new Size(0,0), beta);
 	Core.addWeighted(image, 2, destination, -1, 0, destination);
-        BufferedImage outputImage = new BufferedImage(destination.width(),destination.height(),BufferedImage.TYPE_3BYTE_BGR);
-        byte[] data = ((DataBufferByte) outputImage.getRaster().getDataBuffer()).getData();
-        destination.get(0, 0,data);
+        BufferedImage outputImage = Utility.matToBuffered(destination);
         return outputImage;
     }
 }

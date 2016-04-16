@@ -15,19 +15,17 @@ import static org.opencv.imgcodecs.Imgcodecs.imread;
  * @author arjun
  */
 public class Contrast {
-    public static BufferedImage adjust(String ImagePath,double alpha)
+    public static BufferedImage adjust(BufferedImage bi,double alpha)
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat image = imread(ImagePath);
+        Mat image = Utility.bufferedToMat(bi);
         Mat new_image = Mat.zeros(image.size(), image.type());
         image.convertTo(new_image, -1,alpha );
         int width = new_image.width();
         int height = new_image.height();
         System.out.println(image.width());
         System.out.println(image.height());
-        BufferedImage outputImage = new BufferedImage(new_image.width(),new_image.height(),BufferedImage.TYPE_3BYTE_BGR);
-        byte[] data = ((DataBufferByte) outputImage.getRaster().getDataBuffer()).getData();
-        new_image.get(0, 0,data);
+        BufferedImage outputImage = Utility.matToBuffered(new_image);
         return outputImage;
     }
 }
