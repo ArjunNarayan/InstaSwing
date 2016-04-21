@@ -25,7 +25,7 @@ public class Gamma {
         double invGamma = 1.0/gamma;
         BufferedImage image = null;
         try{
-            BufferedImage imageIO;
+            
             image = ImageIO.read(new File(imagePath));
         }catch(IOException e)
         {
