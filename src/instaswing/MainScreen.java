@@ -87,7 +87,7 @@ public class MainScreen extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         openButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
-        helpButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         imageLabel = new javax.swing.JLabel();
         brightnessLabel = new javax.swing.JLabel();
         brightnessSlider = new javax.swing.JSlider();
@@ -111,7 +111,13 @@ public class MainScreen extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        openButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        Border line = new LineBorder(Color.WHITE);
+        Border margin = new EmptyBorder(5, 15, 5, 15);
+        Border compound = new CompoundBorder(line, margin);
+        openButton.setForeground(Color.BLACK);
+        openButton.setBackground(Color.WHITE);
+        openButton.setBorder(compound);
+        openButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
         openButton.setText("Open");
         openButton.setFocusable(false);
         openButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -127,7 +133,10 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jToolBar1.add(openButton);
 
-        saveButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        saveButton.setForeground(Color.BLACK);
+        saveButton.setBackground(Color.WHITE);
+        saveButton.setBorder(compound);
+        saveButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
         saveButton.setText("Save");
         saveButton.setFocusable(false);
         saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -143,42 +152,37 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jToolBar1.add(saveButton);
 
-        helpButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        helpButton.setText("Help");
-        helpButton.setFocusable(false);
-        helpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        helpButton.setMargin(new java.awt.Insets(5, 14, 5, 14));
-        helpButton.setMaximumSize(new java.awt.Dimension(90, 35));
-        helpButton.setMinimumSize(new java.awt.Dimension(90, 35));
-        helpButton.setPreferredSize(new java.awt.Dimension(90, 35));
-        helpButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(helpButton);
+        jButton1.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
+        jButton1.setText("Steganography");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton1);
 
         imageLabel.setBackground(new java.awt.Color(19, 143, 226));
 
-        brightnessLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        brightnessLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
         brightnessLabel.setText("Brightness");
 
         brightnessSlider.setMinimum(1);
+        brightnessSlider.setValue(0);
 
         sharpnessSlider.setMaximum(16);
         sharpnessSlider.setPaintTicks(true);
         sharpnessSlider.setValue(0);
 
-        shaprnessLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        shaprnessLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
         shaprnessLabel.setText("Sharpness");
 
-        coontrastLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        coontrastLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
         coontrastLabel.setText("Contrast");
 
-        contrastSlider.setMaximum(4);
-        contrastSlider.setValue(2);
+        contrastSlider.setMaximum(50);
+        contrastSlider.setMinimum(10);
+        contrastSlider.setValue(0);
 
         sharpnessOKButton.setForeground(Color.BLACK);
         sharpnessOKButton.setBackground(Color.WHITE);
-        Border line = new LineBorder(Color.WHITE);
-        Border margin = new EmptyBorder(5, 15, 5, 15);
-        Border compound = new CompoundBorder(line, margin);
         sharpnessOKButton.setBorder(compound);
         sharpnessOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sharpnessOKButton.setText("OK");
@@ -213,7 +217,7 @@ public class MainScreen extends javax.swing.JFrame {
         gammaSlider.setMaximum(10);
         gammaSlider.setValue(0);
 
-        shaprnessLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        shaprnessLabel1.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
         shaprnessLabel1.setText("Gamma");
 
         gammaOKButton.setForeground(Color.BLACK);
@@ -227,6 +231,10 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        sketchButton.setForeground(Color.BLACK);
+        sketchButton.setBackground(Color.WHITE);
+        sketchButton.setBorder(compound);
+        sketchButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sketchButton.setText("Sketch");
         sketchButton.setMaximumSize(new java.awt.Dimension(101, 31));
         sketchButton.setMinimumSize(new java.awt.Dimension(101, 31));
@@ -236,6 +244,10 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        grayscaleButton.setForeground(Color.BLACK);
+        grayscaleButton.setBackground(Color.WHITE);
+        grayscaleButton.setBorder(compound);
+        grayscaleButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         grayscaleButton.setText("GrayScale");
         grayscaleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,8 +255,11 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        sepiaButton.setForeground(Color.BLACK);
+        sepiaButton.setBackground(Color.WHITE);
+        sepiaButton.setBorder(compound);
+        sepiaButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sepiaButton.setText("Sepia");
-        sepiaButton.setActionCommand("Sepia");
         sepiaButton.setMaximumSize(new java.awt.Dimension(101, 31));
         sepiaButton.setMinimumSize(new java.awt.Dimension(101, 31));
         sepiaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -253,6 +268,10 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        cartoonButton.setForeground(Color.BLACK);
+        cartoonButton.setBackground(Color.WHITE);
+        cartoonButton.setBorder(compound);
+        cartoonButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         cartoonButton.setText("Cartoon");
         cartoonButton.setMaximumSize(new java.awt.Dimension(101, 31));
         cartoonButton.setMinimumSize(new java.awt.Dimension(101, 31));
@@ -354,8 +373,7 @@ public class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void openButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openButtonActionPerformed
-        JFileChooser chooser = new JFileChooser();
-      // Demonstrate "Open" dialog:
+      JFileChooser chooser = new JFileChooser();
       int rVal = chooser.showOpenDialog(this);
       if (rVal == JFileChooser.APPROVE_OPTION) {
           try{
@@ -373,8 +391,7 @@ public class MainScreen extends javax.swing.JFrame {
         
       }
       if (rVal == JFileChooser.CANCEL_OPTION) {
-        Mat mat = Utility.bufferedToMat(userImage);
-        BufferedImage bi = Utility.matToBuffered(mat);
+          
       }
     }//GEN-LAST:event_openButtonActionPerformed
 
@@ -436,10 +453,13 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         
-       try{
-           File outputImage = new File("savedImage.png");
-           ImageIO.write(output, "png", outputImage);
-           imageSaved = true;
+       JFileChooser chooser = new JFileChooser();
+       int rVal = chooser.showSaveDialog(this);
+       if(rVal == JFileChooser.APPROVE_OPTION )
+        try{
+            File outputImage = chooser.getSelectedFile();
+            ImageIO.write(output, "png", outputImage);
+            imageSaved = true;
        }
        catch(IOException e){
            e.printStackTrace();
@@ -579,8 +599,8 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton gammaOKButton;
     private javax.swing.JSlider gammaSlider;
     private javax.swing.JButton grayscaleButton;
-    private javax.swing.JButton helpButton;
     private javax.swing.JLabel imageLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
