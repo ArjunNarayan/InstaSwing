@@ -58,6 +58,17 @@
                                   <Component id="sharpnessOKButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="cartoonButton" max="32767" attributes="0"/>
+                                  <Component id="sepiaButton" pref="107" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="sketchButton" max="32767" attributes="0"/>
+                                  <Component id="grayscaleButton" pref="104" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="imageLabel" min="-2" pref="640" max="-2" attributes="0"/>
@@ -102,6 +113,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="gammaSlider" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="gammaOKButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="sketchButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sepiaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="grayscaleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cartoonButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -250,27 +271,45 @@
     </Component>
     <Component class="javax.swing.JButton" name="sharpnessOKButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sharpnessOKButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sharpnessOKButton.setForeground(Color.BLACK);&#xa;sharpnessOKButton.setBackground(Color.WHITE);&#xa;Border line = new LineBorder(Color.WHITE);&#xa;Border margin = new EmptyBorder(5, 15, 5, 15);&#xa;Border compound = new CompoundBorder(line, margin);&#xa;sharpnessOKButton.setBorder(compound);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="brightnessOKButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brightnessOKButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="brightnessOKButton.setForeground(Color.BLACK);&#xa;brightnessOKButton.setBackground(Color.WHITE);&#xa;brightnessOKButton.setBorder(compound);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="contrastOKButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contrastOKButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="contrastOKButton.setForeground(Color.BLACK);&#xa;contrastOKButton.setBackground(Color.WHITE);&#xa;contrastOKButton.setBorder(compound);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JSlider" name="gammaSlider">
       <Properties>
@@ -288,10 +327,67 @@
     </Component>
     <Component class="javax.swing.JButton" name="gammaOKButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gammaOKButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gammaOKButton.setForeground(Color.BLACK);&#xa;gammaOKButton.setBackground(Color.WHITE);&#xa;gammaOKButton.setBorder(compound);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="sketchButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sketch"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 31]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 31]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sketchButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="grayscaleButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="GrayScale"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grayscaleButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="sepiaButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sepia"/>
+        <Property name="actionCommand" type="java.lang.String" value="Sepia"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 31]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 31]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sepiaButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cartoonButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cartoon"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 31]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 31]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cartoonButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

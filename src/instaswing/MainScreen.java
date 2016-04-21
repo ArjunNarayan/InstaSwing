@@ -5,6 +5,7 @@
  */
 package instaswing;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -16,6 +17,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 
@@ -39,6 +44,15 @@ public class MainScreen extends javax.swing.JFrame {
      * Creates new form MainScreen
      */
     public MainScreen() {
+        try{
+            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
+            BufferedImage background = ImageIO.read(image);
+            background = resize(background, 1200, 600);
+            this.setContentPane(new ImagePanel(background));
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
         initComponents();
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -87,6 +101,10 @@ public class MainScreen extends javax.swing.JFrame {
         gammaSlider = new javax.swing.JSlider();
         shaprnessLabel1 = new javax.swing.JLabel();
         gammaOKButton = new javax.swing.JButton();
+        sketchButton = new javax.swing.JButton();
+        grayscaleButton = new javax.swing.JButton();
+        sepiaButton = new javax.swing.JButton();
+        cartoonButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
@@ -156,6 +174,13 @@ public class MainScreen extends javax.swing.JFrame {
         contrastSlider.setMaximum(4);
         contrastSlider.setValue(2);
 
+        sharpnessOKButton.setForeground(Color.BLACK);
+        sharpnessOKButton.setBackground(Color.WHITE);
+        Border line = new LineBorder(Color.WHITE);
+        Border margin = new EmptyBorder(5, 15, 5, 15);
+        Border compound = new CompoundBorder(line, margin);
+        sharpnessOKButton.setBorder(compound);
+        sharpnessOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sharpnessOKButton.setText("OK");
         sharpnessOKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,6 +188,10 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        brightnessOKButton.setForeground(Color.BLACK);
+        brightnessOKButton.setBackground(Color.WHITE);
+        brightnessOKButton.setBorder(compound);
+        brightnessOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         brightnessOKButton.setText("OK");
         brightnessOKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +199,10 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        contrastOKButton.setForeground(Color.BLACK);
+        contrastOKButton.setBackground(Color.WHITE);
+        contrastOKButton.setBorder(compound);
+        contrastOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         contrastOKButton.setText("OK");
         contrastOKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,10 +216,49 @@ public class MainScreen extends javax.swing.JFrame {
         shaprnessLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         shaprnessLabel1.setText("Gamma");
 
+        gammaOKButton.setForeground(Color.BLACK);
+        gammaOKButton.setBackground(Color.WHITE);
+        gammaOKButton.setBorder(compound);
+        gammaOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         gammaOKButton.setText("OK");
         gammaOKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gammaOKButtonActionPerformed(evt);
+            }
+        });
+
+        sketchButton.setText("Sketch");
+        sketchButton.setMaximumSize(new java.awt.Dimension(101, 31));
+        sketchButton.setMinimumSize(new java.awt.Dimension(101, 31));
+        sketchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sketchButtonActionPerformed(evt);
+            }
+        });
+
+        grayscaleButton.setText("GrayScale");
+        grayscaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grayscaleButtonActionPerformed(evt);
+            }
+        });
+
+        sepiaButton.setText("Sepia");
+        sepiaButton.setActionCommand("Sepia");
+        sepiaButton.setMaximumSize(new java.awt.Dimension(101, 31));
+        sepiaButton.setMinimumSize(new java.awt.Dimension(101, 31));
+        sepiaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sepiaButtonActionPerformed(evt);
+            }
+        });
+
+        cartoonButton.setText("Cartoon");
+        cartoonButton.setMaximumSize(new java.awt.Dimension(101, 31));
+        cartoonButton.setMinimumSize(new java.awt.Dimension(101, 31));
+        cartoonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cartoonButtonActionPerformed(evt);
             }
         });
 
@@ -220,7 +292,15 @@ public class MainScreen extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(sharpnessSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(sharpnessOKButton))))
+                                    .addComponent(sharpnessOKButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cartoonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sepiaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(sketchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -255,7 +335,15 @@ public class MainScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(gammaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(gammaOKButton)))
+                            .addComponent(gammaOKButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sketchButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sepiaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(grayscaleButton)
+                            .addComponent(cartoonButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -286,7 +374,7 @@ public class MainScreen extends javax.swing.JFrame {
       }
       if (rVal == JFileChooser.CANCEL_OPTION) {
         Mat mat = Utility.bufferedToMat(userImage);
-              BufferedImage bi = Utility.matToBuffered(mat);
+        BufferedImage bi = Utility.matToBuffered(mat);
       }
     }//GEN-LAST:event_openButtonActionPerformed
 
@@ -359,6 +447,65 @@ public class MainScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void sepiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepiaButtonActionPerformed
+        
+        if(!imageEdited){
+            output = Filters.sepia(userImage, 25);
+            imageEdited = true;
+        }
+        else{
+            output = Filters.sepia(output, 25);
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+    }//GEN-LAST:event_sepiaButtonActionPerformed
+
+    private void sketchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sketchButtonActionPerformed
+        if(!imageEdited){
+            output = Filters.sketch(userImage);
+            imageEdited = true;
+        }
+        else{
+            output = Filters.sketch(output);
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+    }//GEN-LAST:event_sketchButtonActionPerformed
+
+    private void cartoonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartoonButtonActionPerformed
+        
+        if(!imageEdited){
+            output = Filters.cartoon(userImage);
+            imageEdited = true;
+        }
+        else{
+            output = Filters.cartoon(output);
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+    }//GEN-LAST:event_cartoonButtonActionPerformed
+
+    private void grayscaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grayscaleButtonActionPerformed
+        
+        if(!imageEdited){
+            output = Filters.grayscale(userImage);
+            imageEdited = true;
+        }
+        else{
+            output = Filters.grayscale(output);
+        }
+        outputPreview = resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+    }//GEN-LAST:event_grayscaleButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -425,19 +572,23 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel brightnessLabel;
     private javax.swing.JButton brightnessOKButton;
     private javax.swing.JSlider brightnessSlider;
+    private javax.swing.JButton cartoonButton;
     private javax.swing.JButton contrastOKButton;
     private javax.swing.JSlider contrastSlider;
     private javax.swing.JLabel coontrastLabel;
     private javax.swing.JButton gammaOKButton;
     private javax.swing.JSlider gammaSlider;
+    private javax.swing.JButton grayscaleButton;
     private javax.swing.JButton helpButton;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
+    private javax.swing.JButton sepiaButton;
     private javax.swing.JLabel shaprnessLabel;
     private javax.swing.JLabel shaprnessLabel1;
     private javax.swing.JButton sharpnessOKButton;
     private javax.swing.JSlider sharpnessSlider;
+    private javax.swing.JButton sketchButton;
     // End of variables declaration//GEN-END:variables
 }
