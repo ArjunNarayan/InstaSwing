@@ -201,7 +201,7 @@
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="saveButton.setForeground(Color.BLACK);&#xa;saveButton.setBackground(Color.WHITE);&#xa;saveButton.setBorder(compound);"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="steganographyButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="URW Chancery L" size="24" style="0"/>
@@ -211,6 +211,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="steganographyButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

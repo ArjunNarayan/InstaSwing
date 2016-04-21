@@ -5,6 +5,8 @@
  */
 package instaswing;
 
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.File;
@@ -91,6 +93,16 @@ public class Utility {
         byte[] data = ((DataBufferByte) outputImage.getRaster().getDataBuffer()).getData();
         imageMat.get(0, 0,data);
         return outputImage;
+    }
+    
+    public static BufferedImage resize(BufferedImage image, int width, int height) {
+        
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = (Graphics2D) bufferedImage.createGraphics();
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(image, 0, 0, width, height, null);
+        g2d.dispose();
+        return bufferedImage;
     }
     
 }

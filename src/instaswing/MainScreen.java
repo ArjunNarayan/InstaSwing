@@ -47,7 +47,7 @@ public class MainScreen extends javax.swing.JFrame {
         try{
             File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
             BufferedImage background = ImageIO.read(image);
-            background = resize(background, 1200, 600);
+            background = Utility.resize(background, 1200, 600);
             this.setContentPane(new ImagePanel(background));
         }
         catch(IOException e){
@@ -87,7 +87,7 @@ public class MainScreen extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         openButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        steganographyButton = new javax.swing.JButton();
         imageLabel = new javax.swing.JLabel();
         brightnessLabel = new javax.swing.JLabel();
         brightnessSlider = new javax.swing.JSlider();
@@ -152,12 +152,17 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jToolBar1.add(saveButton);
 
-        jButton1.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
-        jButton1.setText("Steganography");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        steganographyButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
+        steganographyButton.setText("Steganography");
+        steganographyButton.setFocusable(false);
+        steganographyButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        steganographyButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        steganographyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                steganographyButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(steganographyButton);
 
         imageLabel.setBackground(new java.awt.Color(19, 143, 226));
 
@@ -379,7 +384,7 @@ public class MainScreen extends javax.swing.JFrame {
           try{
               File image = chooser.getSelectedFile();
               userImage = ImageIO.read(image);
-              BufferedImage resizedImage = resize(userImage, 640, 480);
+              BufferedImage resizedImage = Utility.resize(userImage, 640, 480);
               ImageIcon imageIcon = new ImageIcon(resizedImage);
               imageLabel.setIcon(imageIcon);
               userImagePath = image.getAbsolutePath();
@@ -404,7 +409,7 @@ public class MainScreen extends javax.swing.JFrame {
         else{
             output = Brightness.adjust(output, brightnessSlider.getValue());
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_brightnessOKButtonActionPerformed
@@ -419,7 +424,7 @@ public class MainScreen extends javax.swing.JFrame {
 
             output = Sharpeness.adjust(output, sharpnessSlider.getValue());
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_sharpnessOKButtonActionPerformed
@@ -432,7 +437,7 @@ public class MainScreen extends javax.swing.JFrame {
         }
         else
             output = Gamma.adjust(output, gammaSlider.getValue());
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_gammaOKButtonActionPerformed
@@ -446,7 +451,7 @@ public class MainScreen extends javax.swing.JFrame {
         else{
             output = Contrast.adjust(output, contrastSlider.getValue());
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
     }//GEN-LAST:event_contrastOKButtonActionPerformed
@@ -476,7 +481,7 @@ public class MainScreen extends javax.swing.JFrame {
         else{
             output = Filters.sepia(output, 25);
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
         
@@ -490,7 +495,7 @@ public class MainScreen extends javax.swing.JFrame {
         else{
             output = Filters.sketch(output);
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
         
@@ -505,7 +510,7 @@ public class MainScreen extends javax.swing.JFrame {
         else{
             output = Filters.cartoon(output);
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
         
@@ -520,11 +525,19 @@ public class MainScreen extends javax.swing.JFrame {
         else{
             output = Filters.grayscale(output);
         }
-        outputPreview = resize(output, 640, 480);
+        outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
         
     }//GEN-LAST:event_grayscaleButtonActionPerformed
+
+    private void steganographyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_steganographyButtonActionPerformed
+        
+        
+        this.hide();
+        SteganographyUI steganographyui = new SteganographyUI();
+        steganographyui.show();
+    }//GEN-LAST:event_steganographyButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,15 +579,6 @@ public class MainScreen extends javax.swing.JFrame {
         
     }
     
-    public static BufferedImage resize(BufferedImage image, int width, int height) {
-        
-        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = (Graphics2D) bufferedImage.createGraphics();
-        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(image, 0, 0, width, height, null);
-        g2d.dispose();
-        return bufferedImage;
-    }
     
     public void saveImage(){
         
@@ -600,7 +604,6 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JSlider gammaSlider;
     private javax.swing.JButton grayscaleButton;
     private javax.swing.JLabel imageLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
@@ -610,5 +613,6 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton sharpnessOKButton;
     private javax.swing.JSlider sharpnessSlider;
     private javax.swing.JButton sketchButton;
+    private javax.swing.JButton steganographyButton;
     // End of variables declaration//GEN-END:variables
 }
