@@ -31,7 +31,7 @@ public class Sharpeness {
         Mat destination = destination = new Mat(image.rows(),image.cols(),image.type());
 	Imgproc.GaussianBlur(image, destination, new Size(0,0), beta);
 	Core.addWeighted(image, 2, destination, -1, 0, destination);
-        BufferedImage outputImage = Utility.matToBuffered(destination);
+        BufferedImage outputImage = Utility.matToBufferedSimple(destination);
         return outputImage;
     }
 }

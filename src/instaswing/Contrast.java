@@ -25,7 +25,7 @@ public class Contrast {
         int height = new_image.height();
         System.out.println(image.width());
         System.out.println(image.height());
-        BufferedImage outputImage = Utility.matToBuffered(new_image);
+        BufferedImage outputImage = Utility.matToBufferedSimple(new_image);
         return outputImage;
     }
 }
