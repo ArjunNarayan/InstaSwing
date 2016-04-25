@@ -123,6 +123,12 @@ public class Filters {
         
         return Utility.matToBuffered(outputMat);
     }
+    public static BufferedImage wierdness(BufferedImage image)
+    {
+        Mat imageMat = Utility.bufferedToMat(image);
+        Imgproc.cvtColor(imageMat,imageMat,Imgproc.COLOR_BGR2HSV);
+        return Utility.matToBuffered(imageMat);
+    }
     public static BufferedImage cartoon(BufferedImage image)
     {
         int num_bilateral = 7;
@@ -130,8 +136,8 @@ public class Filters {
         Mat imageMat = Utility.bufferedToMat(image);
         Mat bilateralMat = new Mat(imageMat.height(),imageMat.width(),CvType.CV_8UC3);
         Mat edgeMat = Utility.bufferedToMat(image);
-        Imgproc.cvtColor(imageMat, bilateralMat, Imgproc.COLOR_BGRA2BGR);
         
+        //Imgproc.cvtColor(imageMat, bilateralMat, Imgproc.COLOR_BGRA2BGR);
         for(int i=0;i<num_down;i++)
         {
             Imgproc.pyrDown(bilateralMat, bilateralMat);
@@ -139,18 +145,34 @@ public class Filters {
         for(int i=0;i<num_bilateral;i++)
         {
             System.out.println(bilateralMat.channels());
-           Imgproc.bilateralFilter(bilateralMat, bilateralMat, 9, 9, 7);
+           Imgproc.bilateralFilter(imageMat, bilateralMat, 9, 9, 7);
         }
         for(int i=0;i<num_down;i++)
         {
             Imgproc.pyrUp(bilateralMat, bilateralMat);
         }
-        Mat bilateralMat2 = new Mat(imageMat.height(),imageMat.width(),CvType.CV_8UC4);
-        Imgproc.cvtColor(bilateralMat,bilateralMat2,Imgproc.COLOR_BGR2BGRA);
+        //Mat bilateralMat2 = new Mat(imageMat.height(),imageMat.width(),CvType.CV_8UC4);
+        //Imgproc.cvtColor(bilateralMat,bilateralMat2,Imgproc.COLOR_BGR2BGRA);
         Imgproc.cvtColor(edgeMat,edgeMat,Imgproc.COLOR_BGR2GRAY);
         Imgproc.adaptiveThreshold(edgeMat, edgeMat,255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 9, 2);
-        Imgproc.cvtColor(edgeMat, edgeMat, Imgproc.COLOR_GRAY2BGRA);
-        bitwise_and(bilateralMat2,edgeMat,imageMat);
+        Imgproc.cvtColor(edgeMat, edgeMat, Imgproc.COLOR_GRAY2BGR);
+        bitwise_and(bilateralMat,edgeMat,imageMat);
+        return Utility.matToBuffered(imageMat);
+    }
+    public static BufferedImage inverted(BufferedImage image)
+    {
+        Mat imageMat = bufferedToMat(image);
+        for(int i=0;i<imageMat.rows();i++)
+        {
+            for(int j = 0;j<imageMat.cols();j++)
+            {
+                double[] data = imageMat.get(i, j);
+                data[0] = 255-data[0];
+                data[1] = 255-data[1];
+                data[2] = 255-data[2];
+                imageMat.put(i, j, data);
+            }
+        }
         return Utility.matToBuffered(imageMat);
     }
     
@@ -172,24 +194,17 @@ public class Filters {
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         int beta  = 25;
-        String imagePath = "/home/arjun/Pictures/castle.png";
-        BufferedImage image = null;
-        try{
-            
-            image = ImageIO.read(new File(imagePath));
-        }catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+        String imagePath = "/home/arjun/Pictures/Lenna.png";
+        BufferedImage image = Utility.readImage(imagePath);
         int x = image.getType();
         if(x==5)
         {
-            image = Utility.covertTo4Channel(image);
+            //image = Utility.covertTo4Channel(image);
             x = image.getType();
             
         }
         System.out.println(x);
-        BufferedImage output = sketch(image);//sepia(image,beta);
+        BufferedImage output = inverted(image);//sepia(image,beta);
         int y = output.getType();
         System.out.println(y);
         File outputfile = new File("/home/arjun/Pictures/sepia2");
