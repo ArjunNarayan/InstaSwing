@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package instaswing;
 
 import java.awt.Graphics2D;
@@ -10,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
@@ -24,37 +20,37 @@ public class Steganography {
         
     }
     
-    public static boolean encode(String path,String steganpath,String message)
+    public static boolean encode(BufferedImage original,String steganpath,String message)
     {
         BufferedImage image = null;
-        try
-        {
-            BufferedImage orig = getImage(path);
-            image = userSpace(orig);
-            image = addText(image,message);
+        image = userSpace(original);
+        image = addText(image,message);
+        try {
+            
             File output = new File(steganpath);
             ImageIO.write(image, "png", output);
-        }catch(Exception e)
-        {
+            return true;
+            
+        } 
+        catch (Exception e) {
+            
             e.printStackTrace();
             return false;
         }
-        
-        return true;
     }
-    
-    public static String decode(String path)
+            
+    public static String decode(BufferedImage encodedImage)
     {
         byte[] decode;
         try
         {
-            BufferedImage image = userSpace(getImage(path));
+            BufferedImage image = userSpace(encodedImage);
             decode = decodeText(getByteData(image));
             return (new String(decode));
         }catch(Exception e)
         {
             e.printStackTrace();
-            return "";
+            return null;
         }
     }
     
@@ -153,21 +149,6 @@ public class Steganography {
         return result;
     }
     
-    public static void main(String args[])
-    {
-        String path = "/home/arjun/Pictures/Lenna.png";
-        String outputPath = "/home/arjun/Pictures/out.png";
-        String message = "THIS IS A FUCKING TEST MESSAGE BITCH";
-        if(encode(path,outputPath,message))
-        {
-            System.out.println("Great Success!");
-        }
-        else
-        {
-            System.out.println("Great Failure!");
-        }
-        String messageDecoded = decode(outputPath);
-        System.out.println(messageDecoded);
-    }
-    
 }
+   
+
