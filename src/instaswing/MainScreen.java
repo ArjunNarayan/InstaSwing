@@ -36,9 +36,11 @@ public class MainScreen extends javax.swing.JFrame {
     String userImagePath;
     String outputImagePath;
     BufferedImage output;
+    BufferedImage backup;
     BufferedImage outputPreview;
     boolean imageEdited = false;
     boolean imageSaved = false;
+    boolean imageFiltered = false;
     MainScreen mainscreen;
     /**
      * Creates new form MainScreen
@@ -105,6 +107,8 @@ public class MainScreen extends javax.swing.JFrame {
         grayscaleButton = new javax.swing.JButton();
         sepiaButton = new javax.swing.JButton();
         cartoonButton = new javax.swing.JButton();
+        wierdnessButton = new javax.swing.JButton();
+        invertedButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
@@ -286,6 +290,30 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        cartoonButton.setForeground(Color.BLACK);
+        cartoonButton.setBackground(Color.WHITE);
+        cartoonButton.setBorder(compound);
+        wierdnessButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        wierdnessButton.setText("Wierdness");
+        wierdnessButton.setMaximumSize(new java.awt.Dimension(101, 31));
+        wierdnessButton.setMinimumSize(new java.awt.Dimension(101, 31));
+        wierdnessButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wierdnessButtonActionPerformed(evt);
+            }
+        });
+
+        grayscaleButton.setForeground(Color.BLACK);
+        grayscaleButton.setBackground(Color.WHITE);
+        grayscaleButton.setBorder(compound);
+        invertedButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        invertedButton.setText("Inverted");
+        invertedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                invertedButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -319,12 +347,14 @@ public class MainScreen extends javax.swing.JFrame {
                                     .addComponent(sharpnessOKButton)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(wierdnessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cartoonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(sepiaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(sketchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))))
+                                    .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                    .addComponent(invertedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -367,7 +397,11 @@ public class MainScreen extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(grayscaleButton)
-                            .addComponent(cartoonButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cartoonButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(invertedButton)
+                            .addComponent(wierdnessButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -474,12 +508,19 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void sepiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepiaButtonActionPerformed
         
-        if(!imageEdited){
+        if(!imageEdited || !imageFiltered){
+            backup = userImage;
             output = Filters.sepia(userImage, 25);
             imageEdited = true;
+            imageFiltered = true;
+        }
+        else if(!imageFiltered){
+            backup = output;
+            output = Filters.sepia(output, 25);
+            imageFiltered = true;
         }
         else{
-            output = Filters.sepia(output, 25);
+            output = Filters.sepia(backup, 25);
         }
         outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -488,12 +529,19 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_sepiaButtonActionPerformed
 
     private void sketchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sketchButtonActionPerformed
-        if(!imageEdited){
+        if(!imageEdited && !imageFiltered){
+            backup = userImage;
             output = Filters.sketch(userImage);
             imageEdited = true;
+            imageFiltered = true;
+        }
+        else if(!imageFiltered){
+            backup = output;
+            output = Filters.sketch(output);
+            imageFiltered = true;
         }
         else{
-            output = Filters.sketch(output);
+            output = Filters.sketch(backup);
         }
         outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -503,12 +551,19 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void cartoonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartoonButtonActionPerformed
         
-        if(!imageEdited){
+        if(!imageEdited || !imageFiltered){
+            backup = userImage;
             output = Filters.cartoon(userImage);
             imageEdited = true;
+            imageFiltered = true;
+        }
+        else if(!imageFiltered){
+            backup = output;
+            output = Filters.cartoon(output);
+            imageFiltered = true;
         }
         else{
-            output = Filters.cartoon(output);
+            output = Filters.cartoon(backup);
         }
         outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -518,12 +573,19 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void grayscaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grayscaleButtonActionPerformed
         
-        if(!imageEdited){
+        if(!imageEdited || !imageFiltered){
+            backup = userImage;
             output = Filters.grayscale(userImage);
             imageEdited = true;
+            imageFiltered = true;
+        }
+        else if(!imageFiltered){
+            backup = output;
+            output = Filters.grayscale(output);
+            imageFiltered = true;
         }
         else{
-            output = Filters.grayscale(output);
+            output = Filters.grayscale(backup);
         }
         outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
@@ -538,6 +600,49 @@ public class MainScreen extends javax.swing.JFrame {
         SteganographyUI steganographyui = new SteganographyUI();
         steganographyui.show();
     }//GEN-LAST:event_steganographyButtonActionPerformed
+
+    private void wierdnessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wierdnessButtonActionPerformed
+        
+        if(!imageEdited || !imageFiltered){
+            backup = userImage;
+            output = Filters.wierdness(userImage);
+            imageEdited = true;
+            imageFiltered = true;
+        }
+        else if(!imageFiltered){
+            backup = output;
+            output = Filters.wierdness(output);
+            imageFiltered = true;
+        }
+        else{
+            output = Filters.wierdness(backup);
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+    }//GEN-LAST:event_wierdnessButtonActionPerformed
+
+    private void invertedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invertedButtonActionPerformed
+       
+        if(!imageEdited || !imageFiltered){
+            backup = userImage;
+            output = Filters.inverted(userImage);
+            imageEdited = true;
+            imageFiltered = true;
+        }
+        else if(!imageFiltered){
+            backup = output;
+            output = Filters.inverted(output);
+            imageFiltered = true;
+        }
+        else{
+            output = Filters.inverted(backup);
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+    }//GEN-LAST:event_invertedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -604,6 +709,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JSlider gammaSlider;
     private javax.swing.JButton grayscaleButton;
     private javax.swing.JLabel imageLabel;
+    private javax.swing.JButton invertedButton;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
@@ -614,5 +720,6 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JSlider sharpnessSlider;
     private javax.swing.JButton sketchButton;
     private javax.swing.JButton steganographyButton;
+    private javax.swing.JButton wierdnessButton;
     // End of variables declaration//GEN-END:variables
 }
