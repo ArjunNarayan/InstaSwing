@@ -47,9 +47,9 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         try{
-            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
+            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/background.jpg");
             BufferedImage background = ImageIO.read(image);
-            background = Utility.resize(background, 1200, 600);
+            background = Utility.resize(background, 1200, 900);
             this.setContentPane(new ImagePanel(background));
         }
         catch(IOException e){
@@ -109,6 +109,18 @@ public class MainScreen extends javax.swing.JFrame {
         cartoonButton = new javax.swing.JButton();
         wierdnessButton = new javax.swing.JButton();
         invertedButton = new javax.swing.JButton();
+        allSlider = new javax.swing.JSlider();
+        allOKButton = new javax.swing.JButton();
+        blueOKButton = new javax.swing.JButton();
+        blueSlider = new javax.swing.JSlider();
+        greenSlider = new javax.swing.JSlider();
+        greenOKButton = new javax.swing.JButton();
+        redOKButton = new javax.swing.JButton();
+        redSlider = new javax.swing.JSlider();
+        shaprnessLabel2 = new javax.swing.JLabel();
+        shaprnessLabel3 = new javax.swing.JLabel();
+        coontrastLabel1 = new javax.swing.JLabel();
+        brightnessLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
@@ -173,8 +185,7 @@ public class MainScreen extends javax.swing.JFrame {
         brightnessLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
         brightnessLabel.setText("Brightness");
 
-        brightnessSlider.setMinimum(1);
-        brightnessSlider.setValue(0);
+        brightnessSlider.setMinimum(10);
 
         sharpnessSlider.setMaximum(16);
         sharpnessSlider.setPaintTicks(true);
@@ -314,6 +325,76 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        allSlider.setMaximum(10);
+        allSlider.setValue(0);
+
+        gammaOKButton.setForeground(Color.BLACK);
+        gammaOKButton.setBackground(Color.WHITE);
+        gammaOKButton.setBorder(compound);
+        allOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        allOKButton.setText("OK");
+        allOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allOKButtonActionPerformed(evt);
+            }
+        });
+
+        sharpnessOKButton.setForeground(Color.BLACK);
+        sharpnessOKButton.setBackground(Color.WHITE);
+        sharpnessOKButton.setBorder(compound);
+        blueOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        blueOKButton.setText("OK");
+        blueOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blueOKButtonActionPerformed(evt);
+            }
+        });
+
+        blueSlider.setMaximum(16);
+        blueSlider.setPaintTicks(true);
+        blueSlider.setValue(0);
+
+        greenSlider.setMaximum(50);
+        greenSlider.setMinimum(10);
+        greenSlider.setValue(0);
+
+        contrastOKButton.setForeground(Color.BLACK);
+        contrastOKButton.setBackground(Color.WHITE);
+        contrastOKButton.setBorder(compound);
+        greenOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        greenOKButton.setText("OK");
+        greenOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                greenOKButtonActionPerformed(evt);
+            }
+        });
+
+        brightnessOKButton.setForeground(Color.BLACK);
+        brightnessOKButton.setBackground(Color.WHITE);
+        brightnessOKButton.setBorder(compound);
+        redOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        redOKButton.setText("OK");
+        redOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redOKButtonActionPerformed(evt);
+            }
+        });
+
+        redSlider.setMinimum(1);
+        redSlider.setValue(0);
+
+        shaprnessLabel2.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        shaprnessLabel2.setText("Green Channel");
+
+        shaprnessLabel3.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        shaprnessLabel3.setText("Blue Channel");
+
+        coontrastLabel1.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        coontrastLabel1.setText("Green Channel");
+
+        brightnessLabel1.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        brightnessLabel1.setText("Red Channel");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -328,51 +409,75 @@ public class MainScreen extends javax.swing.JFrame {
                                 .addComponent(brightnessSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(brightnessOKButton))
-                            .addComponent(shaprnessLabel1)
-                            .addComponent(shaprnessLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(contrastSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(contrastOKButton))
                             .addComponent(coontrastLabel)
                             .addComponent(brightnessLabel)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(gammaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(gammaOKButton))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(sharpnessSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(sharpnessOKButton)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(wierdnessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cartoonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sepiaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(sketchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                    .addComponent(invertedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(shaprnessLabel1)
+                                    .addComponent(shaprnessLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(contrastSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(contrastOKButton))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(gammaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(gammaOKButton))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(sharpnessSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(sharpnessOKButton)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(wierdnessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cartoonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(sepiaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                                        .addGap(12, 12, 12)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(sketchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                            .addComponent(invertedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(redSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(redOKButton))
+                                    .addComponent(coontrastLabel1)
+                                    .addComponent(brightnessLabel1)
+                                    .addComponent(shaprnessLabel2)
+                                    .addComponent(shaprnessLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(greenSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(greenOKButton))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(allSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(allOKButton))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(blueSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(blueOKButton))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(brightnessLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(brightnessSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(brightnessOKButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(coontrastLabel)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(brightnessLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(brightnessSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(brightnessOKButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(coontrastLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(contrastOKButton)
@@ -401,11 +506,37 @@ public class MainScreen extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(invertedButton)
-                            .addComponent(wierdnessButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(wierdnessButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(brightnessLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(redSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(redOKButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(coontrastLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(greenOKButton)
+                            .addComponent(greenSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(shaprnessLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(blueSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(blueOKButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(shaprnessLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(allSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(allOKButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -415,18 +546,14 @@ public class MainScreen extends javax.swing.JFrame {
       JFileChooser chooser = new JFileChooser();
       int rVal = chooser.showOpenDialog(this);
       if (rVal == JFileChooser.APPROVE_OPTION) {
-          try{
-              File image = chooser.getSelectedFile();
-              userImage = ImageIO.read(image);
-              BufferedImage resizedImage = Utility.resize(userImage, 640, 480);
-              ImageIcon imageIcon = new ImageIcon(resizedImage);
-              imageLabel.setIcon(imageIcon);
-              userImagePath = image.getAbsolutePath();
-          }
-          catch(IOException e){
-              e.printStackTrace();
-          }
+          File image = chooser.getSelectedFile();
+          userImagePath = image.getAbsolutePath();
+          userImage = Utility.readImage(userImagePath);
+          BufferedImage resizedImage = Utility.resize(userImage, 640, 480);
+          ImageIcon imageIcon = new ImageIcon(resizedImage);
+          imageLabel.setIcon(imageIcon);
           imageEdited = false;
+          imageFiltered = false;
         
       }
       if (rVal == JFileChooser.CANCEL_OPTION) {
@@ -508,7 +635,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void sepiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sepiaButtonActionPerformed
         
-        if(!imageEdited || !imageFiltered){
+        if(!imageEdited && !imageFiltered){
             backup = userImage;
             output = Filters.sepia(userImage, 25);
             imageEdited = true;
@@ -551,7 +678,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void cartoonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartoonButtonActionPerformed
         
-        if(!imageEdited || !imageFiltered){
+        if(!imageEdited && !imageFiltered){
             backup = userImage;
             output = Filters.cartoon(userImage);
             imageEdited = true;
@@ -573,7 +700,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void grayscaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grayscaleButtonActionPerformed
         
-        if(!imageEdited || !imageFiltered){
+        if(!imageEdited && !imageFiltered){
             backup = userImage;
             output = Filters.grayscale(userImage);
             imageEdited = true;
@@ -603,7 +730,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void wierdnessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wierdnessButtonActionPerformed
         
-        if(!imageEdited || !imageFiltered){
+        if(!imageEdited && !imageFiltered){
             backup = userImage;
             output = Filters.wierdness(userImage);
             imageEdited = true;
@@ -624,7 +751,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void invertedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invertedButtonActionPerformed
        
-        if(!imageEdited || !imageFiltered){
+        if(!imageEdited && !imageFiltered){
             backup = userImage;
             output = Filters.inverted(userImage);
             imageEdited = true;
@@ -643,6 +770,69 @@ public class MainScreen extends javax.swing.JFrame {
         imageLabel.setIcon(imageIcon);
         
     }//GEN-LAST:event_invertedButtonActionPerformed
+
+    private void allOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allOKButtonActionPerformed
+       
+        if(!imageEdited){
+            output = Saturation.allSaturation(userImage, allSlider.getValue());
+            imageEdited = true;
+        }
+        else{
+            output = Saturation.allSaturation(output, allSlider.getValue());
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+    }//GEN-LAST:event_allOKButtonActionPerformed
+
+    private void blueOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blueOKButtonActionPerformed
+        
+        if(!imageEdited){
+            output = Saturation.blueSaturation(userImage, blueSlider.getValue());
+            imageEdited = true;
+        }
+        else{
+            output = Saturation.blueSaturation(output, blueSlider.getValue());
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+        
+    }//GEN-LAST:event_blueOKButtonActionPerformed
+
+    private void greenOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenOKButtonActionPerformed
+        
+        if(!imageEdited){
+            output = Saturation.greenSaturation(userImage, greenSlider.getValue());
+            imageEdited = true;
+        }
+        else{
+            output = Saturation.greenSaturation(output, greenSlider.getValue());
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+        
+    }//GEN-LAST:event_greenOKButtonActionPerformed
+
+    private void redOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redOKButtonActionPerformed
+        
+        if(!imageEdited){
+            output = Saturation.redSaturation(userImage, redSlider.getValue());
+            imageEdited = true;
+        }
+        else{
+            output = Saturation.redSaturation(output, redSlider.getValue());
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+        
+        
+    }//GEN-LAST:event_redOKButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -698,24 +888,36 @@ public class MainScreen extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton allOKButton;
+    private javax.swing.JSlider allSlider;
+    private javax.swing.JButton blueOKButton;
+    private javax.swing.JSlider blueSlider;
     private javax.swing.JLabel brightnessLabel;
+    private javax.swing.JLabel brightnessLabel1;
     private javax.swing.JButton brightnessOKButton;
     private javax.swing.JSlider brightnessSlider;
     private javax.swing.JButton cartoonButton;
     private javax.swing.JButton contrastOKButton;
     private javax.swing.JSlider contrastSlider;
     private javax.swing.JLabel coontrastLabel;
+    private javax.swing.JLabel coontrastLabel1;
     private javax.swing.JButton gammaOKButton;
     private javax.swing.JSlider gammaSlider;
     private javax.swing.JButton grayscaleButton;
+    private javax.swing.JButton greenOKButton;
+    private javax.swing.JSlider greenSlider;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JButton invertedButton;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton openButton;
+    private javax.swing.JButton redOKButton;
+    private javax.swing.JSlider redSlider;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton sepiaButton;
     private javax.swing.JLabel shaprnessLabel;
     private javax.swing.JLabel shaprnessLabel1;
+    private javax.swing.JLabel shaprnessLabel2;
+    private javax.swing.JLabel shaprnessLabel3;
     private javax.swing.JButton sharpnessOKButton;
     private javax.swing.JSlider sharpnessSlider;
     private javax.swing.JButton sketchButton;

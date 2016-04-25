@@ -14,6 +14,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import static org.opencv.imgcodecs.Imgcodecs.imread;
 import org.opencv.imgproc.Imgproc;
 
 /**
@@ -24,7 +25,7 @@ public class Utility {
     public static Mat bufferedToMat(BufferedImage image)
     {
         byte[] pixels = ((DataBufferByte)image.getRaster().getDataBuffer()).getData();
-        Mat imageMat = new Mat(image.getHeight(),image.getWidth(),CvType.CV_8UC4);
+        Mat imageMat = new Mat(image.getHeight(),image.getWidth(),CvType.CV_8UC3);
         imageMat.put(0, 0, pixels);
         return imageMat;
     }
@@ -49,19 +50,6 @@ public class Utility {
         imageMat.put(0, 0, pixels);
         Imgproc.cvtColor(imageMat, imageMat, Imgproc.COLOR_BGR2BGRA);
         return Utility.matToBuffered(imageMat);
-    }
-    public static BufferedImage readImage(String imagePath)
-    {
-        BufferedImage image = null;
-        try{
-            
-            image = ImageIO.read(new File(imagePath));
-        }catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-       // image = fixChannels(image);
-        return image;
     }
     
     public static BufferedImage matToBuffered(Mat imageMat)
@@ -103,6 +91,14 @@ public class Utility {
         g2d.drawImage(image, 0, 0, width, height, null);
         g2d.dispose();
         return bufferedImage;
+       
+    }
+    
+    public static BufferedImage readImage(String imagePath)
+    {
+        Mat image = imread(imagePath);
+        Imgproc.cvtColor(image, image,Imgproc.COLOR_RGB2BGR);
+        return Utility.matToBuffered(image);
     }
     
 }

@@ -30,15 +30,15 @@ public class SteganographyUI extends javax.swing.JFrame {
     BufferedImage userImage;
     
     public SteganographyUI() {
-        try{
-            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
-            BufferedImage background = ImageIO.read(image);
-            background = Utility.resize(background, 720, 360);
-            this.setContentPane(new ImagePanel(background));
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+//        try{
+//            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
+//            BufferedImage background = ImageIO.read(image);
+//            background = Utility.resize(background, 720, 360);
+//            this.setContentPane(new ImagePanel(background));
+//        }
+//        catch(IOException e){
+//            e.printStackTrace();
+//        }
         initComponents();
     }
 

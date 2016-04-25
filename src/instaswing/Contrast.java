@@ -17,6 +17,7 @@ import static org.opencv.imgcodecs.Imgcodecs.imread;
 public class Contrast {
     public static BufferedImage adjust(BufferedImage bi,double alpha)
     {
+        alpha = 0.1*alpha;
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Mat image = Utility.bufferedToMat(bi);
         Mat new_image = Mat.zeros(image.size(), image.type());
@@ -25,7 +26,7 @@ public class Contrast {
         int height = new_image.height();
         System.out.println(image.width());
         System.out.println(image.height());
-        BufferedImage outputImage = Utility.matToBufferedSimple(new_image);
+        BufferedImage outputImage = Utility.matToBuffered(new_image);
         return outputImage;
     }
 }

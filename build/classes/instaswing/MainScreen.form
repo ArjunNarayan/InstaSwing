@@ -37,43 +37,74 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="brightnessOKButton" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="shaprnessLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="shaprnessLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="contrastSlider" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="contrastOKButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="coontrastLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="brightnessLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="gammaSlider" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="gammaOKButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="sharpnessSlider" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="sharpnessOKButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="wierdnessButton" max="32767" attributes="0"/>
-                                  <Component id="cartoonButton" max="32767" attributes="0"/>
-                                  <Component id="sepiaButton" pref="107" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="shaprnessLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="shaprnessLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="contrastSlider" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="contrastOKButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="gammaSlider" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="gammaOKButton" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="sharpnessSlider" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="sharpnessOKButton" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="wierdnessButton" max="32767" attributes="0"/>
+                                          <Component id="cartoonButton" max="32767" attributes="0"/>
+                                          <Component id="sepiaButton" pref="107" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="sketchButton" max="32767" attributes="0"/>
+                                          <Component id="grayscaleButton" pref="104" max="32767" attributes="0"/>
+                                          <Component id="invertedButton" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="redSlider" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <Component id="redOKButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="coontrastLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="brightnessLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="shaprnessLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="shaprnessLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="greenSlider" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="greenOKButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="allSlider" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="allOKButton" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="blueOKButton" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="sketchButton" max="32767" attributes="0"/>
-                                  <Component id="grayscaleButton" pref="104" max="32767" attributes="0"/>
-                                  <Component id="invertedButton" max="32767" attributes="0"/>
-                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="imageLabel" min="-2" pref="640" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="imageLabel" min="-2" pref="640" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -84,17 +115,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jToolBar1" min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="brightnessLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="brightnessSlider" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="brightnessOKButton" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="coontrastLabel" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="brightnessLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="brightnessSlider" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="brightnessOKButton" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="coontrastLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="contrastOKButton" min="-2" max="-2" attributes="0"/>
@@ -131,13 +162,44 @@
                           <Component id="invertedButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="wierdnessButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <Component id="brightnessLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="redSlider" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="redOKButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="coontrastLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="greenOKButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="greenSlider" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="shaprnessLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="blueSlider" min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="blueOKButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="shaprnessLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="allSlider" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="allOKButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="imageLabel" min="-2" pref="481" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="imageLabel" min="-2" pref="480" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -241,8 +303,7 @@
     </Component>
     <Component class="javax.swing.JSlider" name="brightnessSlider">
       <Properties>
-        <Property name="minimum" type="int" value="1"/>
-        <Property name="value" type="int" value="0"/>
+        <Property name="minimum" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="sharpnessSlider">
@@ -452,6 +513,120 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="grayscaleButton.setForeground(Color.BLACK);&#xa;grayscaleButton.setBackground(Color.WHITE);&#xa;grayscaleButton.setBorder(compound);"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSlider" name="allSlider">
+      <Properties>
+        <Property name="maximum" type="int" value="10"/>
+        <Property name="value" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="allOKButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allOKButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gammaOKButton.setForeground(Color.BLACK);&#xa;gammaOKButton.setBackground(Color.WHITE);&#xa;gammaOKButton.setBorder(compound);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="blueOKButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="blueOKButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sharpnessOKButton.setForeground(Color.BLACK);&#xa;sharpnessOKButton.setBackground(Color.WHITE);&#xa;sharpnessOKButton.setBorder(compound);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSlider" name="blueSlider">
+      <Properties>
+        <Property name="maximum" type="int" value="16"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
+        <Property name="value" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="greenSlider">
+      <Properties>
+        <Property name="maximum" type="int" value="50"/>
+        <Property name="minimum" type="int" value="10"/>
+        <Property name="value" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="greenOKButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greenOKButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="contrastOKButton.setForeground(Color.BLACK);&#xa;contrastOKButton.setBackground(Color.WHITE);&#xa;contrastOKButton.setBorder(compound);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="redOKButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="redOKButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="brightnessOKButton.setForeground(Color.BLACK);&#xa;brightnessOKButton.setBackground(Color.WHITE);&#xa;brightnessOKButton.setBorder(compound);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSlider" name="redSlider">
+      <Properties>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="value" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="shaprnessLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Green Channel"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="shaprnessLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Blue Channel"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="coontrastLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Green Channel"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="brightnessLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Red Channel"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
