@@ -156,8 +156,8 @@ public class Steganography {
     public static void main(String args[])
     {
         String path = "/home/arjun/Pictures/Lenna.png";
-        String outputPath = "/home/arjun/Pictures/out.png";
-        String message = "WEED";
+        String outputPath = "/home/arjun/Pictures/stegout.png";
+        String message = "Project Sucks";
         if(encode(path,outputPath,message))
         {
             System.out.println("Great Success!");
