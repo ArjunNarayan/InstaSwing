@@ -28,7 +28,6 @@ public class SteganographyUI extends javax.swing.JFrame {
      * Creates new form Steganography
      */
     BufferedImage userImage;
-    
     public SteganographyUI() {
 //        try{
 //            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
@@ -125,6 +124,8 @@ public class SteganographyUI extends javax.swing.JFrame {
 
     private void encodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encodeButtonActionPerformed
         
+        String steganpath = null;
+        String message = null;
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Choose File to Encode");
         int rVal = chooser.showOpenDialog(this);
@@ -132,6 +133,22 @@ public class SteganographyUI extends javax.swing.JFrame {
             try{
                 File image = chooser.getSelectedFile();
                 userImage = ImageIO.read(image);
+                message = JOptionPane.showInputDialog(null,
+                "Enter Message",
+                "Enter Message",
+                JOptionPane.QUESTION_MESSAGE);
+                
+                chooser.setDialogTitle("Choose Location to Save");
+                rVal = chooser.showSaveDialog(this);
+                if(rVal == JFileChooser.APPROVE_OPTION ){  
+            
+                    File outputImage = chooser.getSelectedFile();
+                    steganpath = outputImage.getAbsolutePath();
+                    if(Steganography.encode(userImage, steganpath , message))
+                        JOptionPane.showMessageDialog(this, "Encoded Successfully");
+                    else
+                        JOptionPane.showMessageDialog(this, "Encode Failed");
+                }
             }
             catch(IOException e){
                 e.printStackTrace();
@@ -139,23 +156,7 @@ public class SteganographyUI extends javax.swing.JFrame {
 
         }
         if (rVal == JFileChooser.CANCEL_OPTION) {
-
-        }
-        
-        chooser.setDialogTitle("Choose Location to Save");
-        rVal = chooser.showSaveDialog(this);
-        if(rVal == JFileChooser.APPROVE_OPTION ){
             
-            File outputImage = chooser.getSelectedFile();
-            String steganpath = outputImage.getAbsolutePath();
-            String message = JOptionPane.showInputDialog(null,
-                "Enter Message",
-                "Enter Message",
-                JOptionPane.QUESTION_MESSAGE);
-            if(Steganography.encode(userImage, steganpath , message))
-                JOptionPane.showMessageDialog(this, "Encoded Successfully");
-            else
-                JOptionPane.showMessageDialog(this, "Encode Failed");
         }
         
     }//GEN-LAST:event_encodeButtonActionPerformed

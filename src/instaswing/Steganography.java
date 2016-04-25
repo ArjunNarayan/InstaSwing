@@ -1,10 +1,11 @@
-
+package instaswing;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
@@ -147,6 +148,7 @@ public class Steganography {
         
         return result;
     }
+    
 }
    
 

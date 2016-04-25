@@ -47,9 +47,9 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         try{
-            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/background.jpg");
+            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.jpg");
             BufferedImage background = ImageIO.read(image);
-            background = Utility.resize(background, 1200, 900);
+            background = Utility.resize(background, 1200, 790);
             this.setContentPane(new ImagePanel(background));
         }
         catch(IOException e){
@@ -121,6 +121,7 @@ public class MainScreen extends javax.swing.JFrame {
         shaprnessLabel3 = new javax.swing.JLabel();
         coontrastLabel1 = new javax.swing.JLabel();
         brightnessLabel1 = new javax.swing.JLabel();
+        redeyeRemoveButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
@@ -132,8 +133,9 @@ public class MainScreen extends javax.swing.JFrame {
         Border compound = new CompoundBorder(line, margin);
         openButton.setForeground(Color.BLACK);
         openButton.setBackground(Color.WHITE);
-        openButton.setBorder(compound);
+        openButton.setBorder(margin);
         openButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
+        openButton.setForeground(new java.awt.Color(255, 255, 255));
         openButton.setText("Open");
         openButton.setFocusable(false);
         openButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -149,10 +151,8 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jToolBar1.add(openButton);
 
-        saveButton.setForeground(Color.BLACK);
-        saveButton.setBackground(Color.WHITE);
-        saveButton.setBorder(compound);
         saveButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
+        saveButton.setForeground(new java.awt.Color(255, 255, 255));
         saveButton.setText("Save");
         saveButton.setFocusable(false);
         saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -169,6 +169,7 @@ public class MainScreen extends javax.swing.JFrame {
         jToolBar1.add(saveButton);
 
         steganographyButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
+        steganographyButton.setForeground(new java.awt.Color(255, 255, 255));
         steganographyButton.setText("Steganography");
         steganographyButton.setFocusable(false);
         steganographyButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -182,19 +183,24 @@ public class MainScreen extends javax.swing.JFrame {
 
         imageLabel.setBackground(new java.awt.Color(19, 143, 226));
 
+        brightnessLabel.setBackground(new java.awt.Color(255, 255, 255));
         brightnessLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        brightnessLabel.setForeground(new java.awt.Color(255, 255, 255));
         brightnessLabel.setText("Brightness");
 
         brightnessSlider.setMinimum(10);
+        brightnessSlider.setValue(10);
 
         sharpnessSlider.setMaximum(16);
         sharpnessSlider.setPaintTicks(true);
         sharpnessSlider.setValue(0);
 
         shaprnessLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        shaprnessLabel.setForeground(new java.awt.Color(255, 255, 255));
         shaprnessLabel.setText("Sharpness");
 
         coontrastLabel.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        coontrastLabel.setForeground(new java.awt.Color(255, 255, 255));
         coontrastLabel.setText("Contrast");
 
         contrastSlider.setMaximum(50);
@@ -203,7 +209,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         sharpnessOKButton.setForeground(Color.BLACK);
         sharpnessOKButton.setBackground(Color.WHITE);
-        sharpnessOKButton.setBorder(compound);
+        sharpnessOKButton.setBorder(margin);
         sharpnessOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sharpnessOKButton.setText("OK");
         sharpnessOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +220,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         brightnessOKButton.setForeground(Color.BLACK);
         brightnessOKButton.setBackground(Color.WHITE);
-        brightnessOKButton.setBorder(compound);
+        brightnessOKButton.setBorder(margin);
         brightnessOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         brightnessOKButton.setText("OK");
         brightnessOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +231,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         contrastOKButton.setForeground(Color.BLACK);
         contrastOKButton.setBackground(Color.WHITE);
-        contrastOKButton.setBorder(compound);
+        contrastOKButton.setBorder(margin);
         contrastOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         contrastOKButton.setText("OK");
         contrastOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -238,11 +244,12 @@ public class MainScreen extends javax.swing.JFrame {
         gammaSlider.setValue(0);
 
         shaprnessLabel1.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        shaprnessLabel1.setForeground(new java.awt.Color(255, 255, 255));
         shaprnessLabel1.setText("Gamma");
 
         gammaOKButton.setForeground(Color.BLACK);
         gammaOKButton.setBackground(Color.WHITE);
-        gammaOKButton.setBorder(compound);
+        gammaOKButton.setBorder(margin);
         gammaOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         gammaOKButton.setText("OK");
         gammaOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +260,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         sketchButton.setForeground(Color.BLACK);
         sketchButton.setBackground(Color.WHITE);
-        sketchButton.setBorder(compound);
+        sketchButton.setBorder(margin);
         sketchButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sketchButton.setText("Sketch");
         sketchButton.setMaximumSize(new java.awt.Dimension(101, 31));
@@ -266,7 +273,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         grayscaleButton.setForeground(Color.BLACK);
         grayscaleButton.setBackground(Color.WHITE);
-        grayscaleButton.setBorder(compound);
+        grayscaleButton.setBorder(margin);
         grayscaleButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         grayscaleButton.setText("GrayScale");
         grayscaleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +284,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         sepiaButton.setForeground(Color.BLACK);
         sepiaButton.setBackground(Color.WHITE);
-        sepiaButton.setBorder(compound);
+        sepiaButton.setBorder(margin);
         sepiaButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         sepiaButton.setText("Sepia");
         sepiaButton.setMaximumSize(new java.awt.Dimension(101, 31));
@@ -290,7 +297,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         cartoonButton.setForeground(Color.BLACK);
         cartoonButton.setBackground(Color.WHITE);
-        cartoonButton.setBorder(compound);
+        cartoonButton.setBorder(margin);
         cartoonButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         cartoonButton.setText("Cartoon");
         cartoonButton.setMaximumSize(new java.awt.Dimension(101, 31));
@@ -301,9 +308,9 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        cartoonButton.setForeground(Color.BLACK);
-        cartoonButton.setBackground(Color.WHITE);
-        cartoonButton.setBorder(compound);
+        wierdnessButton.setForeground(Color.BLACK);
+        wierdnessButton.setBackground(Color.WHITE);
+        wierdnessButton.setBorder(margin);
         wierdnessButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         wierdnessButton.setText("Wierdness");
         wierdnessButton.setMaximumSize(new java.awt.Dimension(101, 31));
@@ -314,9 +321,9 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        grayscaleButton.setForeground(Color.BLACK);
-        grayscaleButton.setBackground(Color.WHITE);
-        grayscaleButton.setBorder(compound);
+        invertedButton.setForeground(Color.BLACK);
+        invertedButton.setBackground(Color.WHITE);
+        invertedButton.setBorder(margin);
         invertedButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         invertedButton.setText("Inverted");
         invertedButton.addActionListener(new java.awt.event.ActionListener() {
@@ -328,9 +335,9 @@ public class MainScreen extends javax.swing.JFrame {
         allSlider.setMaximum(10);
         allSlider.setValue(0);
 
-        gammaOKButton.setForeground(Color.BLACK);
-        gammaOKButton.setBackground(Color.WHITE);
-        gammaOKButton.setBorder(compound);
+        allOKButton.setForeground(Color.BLACK);
+        allOKButton.setBackground(Color.WHITE);
+        allOKButton.setBorder(margin);
         allOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         allOKButton.setText("OK");
         allOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -339,10 +346,10 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        sharpnessOKButton.setForeground(Color.BLACK);
-        sharpnessOKButton.setBackground(Color.WHITE);
-        sharpnessOKButton.setBorder(compound);
         blueOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        blueOKButton.setForeground(Color.BLACK);
+        blueOKButton.setBackground(Color.WHITE);
+        blueOKButton.setBorder(margin);
         blueOKButton.setText("OK");
         blueOKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,9 +365,9 @@ public class MainScreen extends javax.swing.JFrame {
         greenSlider.setMinimum(10);
         greenSlider.setValue(0);
 
-        contrastOKButton.setForeground(Color.BLACK);
-        contrastOKButton.setBackground(Color.WHITE);
-        contrastOKButton.setBorder(compound);
+        greenOKButton.setForeground(Color.BLACK);
+        greenOKButton.setBackground(Color.WHITE);
+        greenOKButton.setBorder(margin);
         greenOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         greenOKButton.setText("OK");
         greenOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -369,9 +376,6 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        brightnessOKButton.setForeground(Color.BLACK);
-        brightnessOKButton.setBackground(Color.WHITE);
-        brightnessOKButton.setBorder(compound);
         redOKButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
         redOKButton.setText("OK");
         redOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -384,16 +388,31 @@ public class MainScreen extends javax.swing.JFrame {
         redSlider.setValue(0);
 
         shaprnessLabel2.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
-        shaprnessLabel2.setText("Green Channel");
+        shaprnessLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        shaprnessLabel2.setText("All Channels");
 
         shaprnessLabel3.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        shaprnessLabel3.setForeground(new java.awt.Color(255, 255, 255));
         shaprnessLabel3.setText("Blue Channel");
 
         coontrastLabel1.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        coontrastLabel1.setForeground(new java.awt.Color(255, 255, 255));
         coontrastLabel1.setText("Green Channel");
 
         brightnessLabel1.setFont(new java.awt.Font("URW Chancery L", 0, 20)); // NOI18N
+        brightnessLabel1.setForeground(new java.awt.Color(255, 255, 255));
         brightnessLabel1.setText("Red Channel");
+
+        redeyeRemoveButton.setForeground(Color.BLACK);
+        redeyeRemoveButton.setBackground(Color.WHITE);
+        redeyeRemoveButton.setBorder(margin);
+        redeyeRemoveButton.setFont(new java.awt.Font("URW Chancery L", 0, 18)); // NOI18N
+        redeyeRemoveButton.setText("Red Eye Removal");
+        redeyeRemoveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redeyeRemoveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -429,16 +448,6 @@ public class MainScreen extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(sharpnessOKButton)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(wierdnessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cartoonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(sepiaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-                                        .addGap(12, 12, 12)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(sketchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                            .addComponent(invertedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(redSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(redOKButton))
@@ -450,17 +459,28 @@ public class MainScreen extends javax.swing.JFrame {
                                         .addComponent(greenSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(greenOKButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(blueSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(blueOKButton))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(redeyeRemoveButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(allSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(allOKButton))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(blueSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(blueOKButton))))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(wierdnessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(cartoonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(sepiaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                                            .addGap(12, 12, 12)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(sketchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(grayscaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                                .addComponent(invertedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(allSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(allOKButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -507,7 +527,9 @@ public class MainScreen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(invertedButton)
                             .addComponent(wierdnessButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(redeyeRemoveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addComponent(brightnessLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -834,6 +856,19 @@ public class MainScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_redOKButtonActionPerformed
 
+    private void redeyeRemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redeyeRemoveButtonActionPerformed
+        if(!imageEdited){
+            output = FaceDetection.removeRedEye(userImage);
+            imageEdited = true;
+        }
+        else{
+            output = FaceDetection.removeRedEye(output);
+        }
+        outputPreview = Utility.resize(output, 640, 480);
+        ImageIcon imageIcon = new ImageIcon(outputPreview);
+        imageLabel.setIcon(imageIcon);
+    }//GEN-LAST:event_redeyeRemoveButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -912,6 +947,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton openButton;
     private javax.swing.JButton redOKButton;
     private javax.swing.JSlider redSlider;
+    private javax.swing.JButton redeyeRemoveButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton sepiaButton;
     private javax.swing.JLabel shaprnessLabel;

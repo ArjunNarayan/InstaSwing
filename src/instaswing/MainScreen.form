@@ -61,19 +61,6 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="wierdnessButton" max="32767" attributes="0"/>
-                                          <Component id="cartoonButton" max="32767" attributes="0"/>
-                                          <Component id="sepiaButton" pref="107" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="sketchButton" max="32767" attributes="0"/>
-                                          <Component id="grayscaleButton" pref="104" max="32767" attributes="0"/>
-                                          <Component id="invertedButton" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="redSlider" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
                                       <Component id="redOKButton" min="-2" max="-2" attributes="0"/>
@@ -87,21 +74,35 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="greenOKButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="blueOKButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="redeyeRemoveButton" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="allSlider" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="allOKButton" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="blueOKButton" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="wierdnessButton" max="32767" attributes="0"/>
+                                              <Component id="cartoonButton" max="32767" attributes="0"/>
+                                              <Component id="sepiaButton" pref="107" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="sketchButton" max="32767" attributes="0"/>
+                                              <Component id="grayscaleButton" pref="104" max="32767" attributes="0"/>
+                                              <Component id="invertedButton" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="imageLabel" min="-2" pref="640" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="allSlider" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="allOKButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -162,7 +163,9 @@
                           <Component id="invertedButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="wierdnessButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="redeyeRemoveButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="8" max="32767" attributes="0"/>
                       <Component id="brightnessLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -217,6 +220,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="URW Chancery L" size="24" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Open"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -238,13 +244,16 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openButtonActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Border line = new LineBorder(Color.WHITE);&#xa;Border margin = new EmptyBorder(5, 15, 5, 15);&#xa;Border compound = new CompoundBorder(line, margin);&#xa;openButton.setForeground(Color.BLACK);&#xa;openButton.setBackground(Color.WHITE);&#xa;openButton.setBorder(compound);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Border line = new LineBorder(Color.WHITE);&#xa;Border margin = new EmptyBorder(5, 15, 5, 15);&#xa;Border compound = new CompoundBorder(line, margin);&#xa;openButton.setForeground(Color.BLACK);&#xa;openButton.setBackground(Color.WHITE);&#xa;openButton.setBorder(margin);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="saveButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="URW Chancery L" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Save"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -266,14 +275,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
           </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="saveButton.setForeground(Color.BLACK);&#xa;saveButton.setBackground(Color.WHITE);&#xa;saveButton.setBorder(compound);"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="steganographyButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="URW Chancery L" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Steganography"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -295,8 +304,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="brightnessLabel">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Brightness"/>
       </Properties>
@@ -304,6 +319,7 @@
     <Component class="javax.swing.JSlider" name="brightnessSlider">
       <Properties>
         <Property name="minimum" type="int" value="10"/>
+        <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="sharpnessSlider">
@@ -318,6 +334,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Sharpness"/>
       </Properties>
     </Component>
@@ -325,6 +344,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Contrast"/>
       </Properties>
@@ -347,7 +369,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sharpnessOKButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sharpnessOKButton.setForeground(Color.BLACK);&#xa;sharpnessOKButton.setBackground(Color.WHITE);&#xa;sharpnessOKButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sharpnessOKButton.setForeground(Color.BLACK);&#xa;sharpnessOKButton.setBackground(Color.WHITE);&#xa;sharpnessOKButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="brightnessOKButton">
@@ -361,7 +383,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brightnessOKButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="brightnessOKButton.setForeground(Color.BLACK);&#xa;brightnessOKButton.setBackground(Color.WHITE);&#xa;brightnessOKButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="brightnessOKButton.setForeground(Color.BLACK);&#xa;brightnessOKButton.setBackground(Color.WHITE);&#xa;brightnessOKButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="contrastOKButton">
@@ -375,7 +397,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contrastOKButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="contrastOKButton.setForeground(Color.BLACK);&#xa;contrastOKButton.setBackground(Color.WHITE);&#xa;contrastOKButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="contrastOKButton.setForeground(Color.BLACK);&#xa;contrastOKButton.setBackground(Color.WHITE);&#xa;contrastOKButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JSlider" name="gammaSlider">
@@ -388,6 +410,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Gamma"/>
       </Properties>
@@ -403,7 +428,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gammaOKButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gammaOKButton.setForeground(Color.BLACK);&#xa;gammaOKButton.setBackground(Color.WHITE);&#xa;gammaOKButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gammaOKButton.setForeground(Color.BLACK);&#xa;gammaOKButton.setBackground(Color.WHITE);&#xa;gammaOKButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="sketchButton">
@@ -423,7 +448,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sketchButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sketchButton.setForeground(Color.BLACK);&#xa;sketchButton.setBackground(Color.WHITE);&#xa;sketchButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sketchButton.setForeground(Color.BLACK);&#xa;sketchButton.setBackground(Color.WHITE);&#xa;sketchButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="grayscaleButton">
@@ -437,7 +462,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grayscaleButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="grayscaleButton.setForeground(Color.BLACK);&#xa;grayscaleButton.setBackground(Color.WHITE);&#xa;grayscaleButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="grayscaleButton.setForeground(Color.BLACK);&#xa;grayscaleButton.setBackground(Color.WHITE);&#xa;grayscaleButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="sepiaButton">
@@ -457,7 +482,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sepiaButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sepiaButton.setForeground(Color.BLACK);&#xa;sepiaButton.setBackground(Color.WHITE);&#xa;sepiaButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sepiaButton.setForeground(Color.BLACK);&#xa;sepiaButton.setBackground(Color.WHITE);&#xa;sepiaButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="cartoonButton">
@@ -477,7 +502,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cartoonButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="cartoonButton.setForeground(Color.BLACK);&#xa;cartoonButton.setBackground(Color.WHITE);&#xa;cartoonButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="cartoonButton.setForeground(Color.BLACK);&#xa;cartoonButton.setBackground(Color.WHITE);&#xa;cartoonButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="wierdnessButton">
@@ -497,7 +522,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wierdnessButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="cartoonButton.setForeground(Color.BLACK);&#xa;cartoonButton.setBackground(Color.WHITE);&#xa;cartoonButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="wierdnessButton.setForeground(Color.BLACK);&#xa;wierdnessButton.setBackground(Color.WHITE);&#xa;wierdnessButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="invertedButton">
@@ -511,7 +536,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="invertedButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="grayscaleButton.setForeground(Color.BLACK);&#xa;grayscaleButton.setBackground(Color.WHITE);&#xa;grayscaleButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="invertedButton.setForeground(Color.BLACK);&#xa;invertedButton.setBackground(Color.WHITE);&#xa;invertedButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JSlider" name="allSlider">
@@ -531,12 +556,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allOKButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gammaOKButton.setForeground(Color.BLACK);&#xa;gammaOKButton.setBackground(Color.WHITE);&#xa;gammaOKButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="allOKButton.setForeground(Color.BLACK);&#xa;allOKButton.setBackground(Color.WHITE);&#xa;allOKButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="blueOKButton">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="blueOKButton.setForeground(Color.BLACK);&#xa;blueOKButton.setBackground(Color.WHITE);&#xa;blueOKButton.setBorder(margin);">
           <Font name="URW Chancery L" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
@@ -544,9 +569,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="blueOKButtonActionPerformed"/>
       </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sharpnessOKButton.setForeground(Color.BLACK);&#xa;sharpnessOKButton.setBackground(Color.WHITE);&#xa;sharpnessOKButton.setBorder(compound);"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JSlider" name="blueSlider">
       <Properties>
@@ -573,7 +595,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greenOKButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="contrastOKButton.setForeground(Color.BLACK);&#xa;contrastOKButton.setBackground(Color.WHITE);&#xa;contrastOKButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="greenOKButton.setForeground(Color.BLACK);&#xa;greenOKButton.setBackground(Color.WHITE);&#xa;greenOKButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="redOKButton">
@@ -586,9 +608,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="redOKButtonActionPerformed"/>
       </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="brightnessOKButton.setForeground(Color.BLACK);&#xa;brightnessOKButton.setBackground(Color.WHITE);&#xa;brightnessOKButton.setBorder(compound);"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JSlider" name="redSlider">
       <Properties>
@@ -601,13 +620,19 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Green Channel"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="All Channels"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="shaprnessLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Blue Channel"/>
       </Properties>
@@ -617,6 +642,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Green Channel"/>
       </Properties>
     </Component>
@@ -625,8 +653,25 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="URW Chancery L" size="20" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Red Channel"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="redeyeRemoveButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="URW Chancery L" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Red Eye Removal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="redeyeRemoveButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="redeyeRemoveButton.setForeground(Color.BLACK);&#xa;redeyeRemoveButton.setBackground(Color.WHITE);&#xa;redeyeRemoveButton.setBorder(margin);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
