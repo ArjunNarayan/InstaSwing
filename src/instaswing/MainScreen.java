@@ -616,11 +616,11 @@ public class MainScreen extends javax.swing.JFrame {
     private void gammaOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gammaOKButtonActionPerformed
         
         if(!imageEdited){
-            output = Gamma.adjust(userImage, gammaSlider.getValue());
+            output = Gamma.adjust2(userImage, gammaSlider.getValue());
             imageEdited = true;
         }
         else
-            output = Gamma.adjust(output, gammaSlider.getValue());
+            output = Gamma.adjust2(output, gammaSlider.getValue());
         outputPreview = Utility.resize(output, 640, 480);
         ImageIcon imageIcon = new ImageIcon(outputPreview);
         imageLabel.setIcon(imageIcon);
