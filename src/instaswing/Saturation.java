@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Saturation {
     public static BufferedImage redSaturation(BufferedImage image,int amount)
     {
         Mat imageMat = Utility.bufferedToMat(image);
+        Imgproc.cvtColor(imageMat, imageMat, Imgproc.COLOR_RGB2BGR);
         for(int i=0;i<imageMat.rows();i++)
         {
             for(int j=0;j<imageMat.cols();j++)
@@ -39,6 +41,7 @@ public class Saturation {
     public static BufferedImage greenSaturation(BufferedImage image,int amount)
     {
         Mat imageMat = Utility.bufferedToMat(image);
+        Imgproc.cvtColor(imageMat, imageMat, Imgproc.COLOR_RGB2BGR);
         for(int i=0;i<imageMat.rows();i++)
         {
             for(int j=0;j<imageMat.cols();j++)
@@ -54,6 +57,7 @@ public class Saturation {
     public static BufferedImage blueSaturation(BufferedImage image,int amount)
     {
         Mat imageMat = Utility.bufferedToMat(image);
+        Imgproc.cvtColor(imageMat, imageMat, Imgproc.COLOR_RGB2BGR);
         for(int i=0;i<imageMat.rows();i++)
         {
             for(int j=0;j<imageMat.cols();j++)
@@ -69,6 +73,7 @@ public class Saturation {
     public static BufferedImage allSaturation(BufferedImage image,int amount)
     {
      Mat imageMat = Utility.bufferedToMat(image);
+     Imgproc.cvtColor(imageMat, imageMat, Imgproc.COLOR_RGB2BGR);
         for(int i=0;i<imageMat.rows();i++)
         {
             for(int j=0;j<imageMat.cols();j++)

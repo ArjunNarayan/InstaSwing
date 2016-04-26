@@ -189,7 +189,8 @@ public class MainScreen extends javax.swing.JFrame {
         brightnessLabel.setText("Brightness");
 
         brightnessSlider.setMinimum(10);
-        brightnessSlider.setValue(10);
+        brightnessSlider.setToolTipText("");
+        brightnessSlider.setValue(0);
 
         sharpnessSlider.setMaximum(16);
         sharpnessSlider.setPaintTicks(true);

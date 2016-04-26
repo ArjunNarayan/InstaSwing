@@ -28,6 +28,7 @@ public class Sharpeness {
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Mat image = Utility.bufferedToMat(bi);
+        Imgproc.cvtColor(image, image, Imgproc.COLOR_RGB2BGR);
         Mat destination = destination = new Mat(image.rows(),image.cols(),image.type());
 	Imgproc.GaussianBlur(image, destination, new Size(0,0), beta);
 	Core.addWeighted(image, 2, destination, -1, 0, destination);
