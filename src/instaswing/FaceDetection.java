@@ -1,3 +1,4 @@
+
 package instaswing;
 
 import java.awt.image.BufferedImage;
@@ -11,6 +12,7 @@ import org.opencv.core.Point;
 import org.opencv.core.Range;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 import static org.opencv.imgproc.Imgproc.rectangle;
 import org.opencv.objdetect.CascadeClassifier;
 
@@ -22,6 +24,7 @@ public class FaceDetection {
     public static BufferedImage removeRedEye(BufferedImage image)
     {
         Mat imageMat = Utility.bufferedToMat(image);
+        Imgproc.cvtColor(imageMat, imageMat, Imgproc.COLOR_RGB2BGR);
         CascadeClassifier eyeDetector = new CascadeClassifier("eyeCascade.xml");
         MatOfRect eyeDetections = new MatOfRect();
         eyeDetector.detectMultiScale(imageMat, eyeDetections);
@@ -50,5 +53,39 @@ public class FaceDetection {
             }
         }
         return Utility.matToBuffered(imageMat);
+    }
+    public static void main(String[] args)
+    {
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        int beta  = 25;
+        String imagePath = "/home/anuraag/red.jpg";
+        BufferedImage image = Utility.readImage(imagePath);
+        int x = image.getType();
+        if(x==5)
+        {
+           // image = Utility.covertTo4Channel(image);
+            x = image.getType();
+            File outputfile = new File("/home/anuraag/random");
+            try{
+            
+                ImageIO.write(image, "png", outputfile);
+            }catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+            
+        }
+        System.out.println(x);
+        BufferedImage output = removeRedEye(image);//sepia(image,beta);
+        int y = output.getType();
+        System.out.println(y);
+        File outputfile = new File("/home/anuraag/faces");
+        try{
+            
+            ImageIO.write(output, "png", outputfile);
+        }catch(IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
