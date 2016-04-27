@@ -29,15 +29,15 @@ public class SteganographyUI extends javax.swing.JFrame {
      */
     BufferedImage userImage;
     public SteganographyUI() {
-//        try{
-//            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.png");
-//            BufferedImage background = ImageIO.read(image);
-//            background = Utility.resize(background, 720, 360);
-//            this.setContentPane(new ImagePanel(background));
-//        }
-//        catch(IOException e){
-//            e.printStackTrace();
-//        }
+       try{
+            File image = new File("/home/anuraag/Documents/Projects/InstaSwing/bg.jpg");
+            BufferedImage background = ImageIO.read(image);
+            background = Utility.resize(background, 720, 360);
+            this.setContentPane(new ImagePanel(background));
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
         initComponents();
     }
 
@@ -55,14 +55,13 @@ public class SteganographyUI extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(360, 360));
 
         Border line = new LineBorder(Color.WHITE);
         Border margin = new EmptyBorder(5, 15, 5, 15);
         Border compound = new CompoundBorder(line, margin);
         encodeButton.setForeground(Color.BLACK);
         encodeButton.setBackground(Color.WHITE);
-        encodeButton.setBorder(compound);
+        encodeButton.setBorder(margin);
         encodeButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
         encodeButton.setText("Encode");
         encodeButton.setToolTipText("");
@@ -74,7 +73,7 @@ public class SteganographyUI extends javax.swing.JFrame {
 
         decodeButton.setForeground(Color.BLACK);
         decodeButton.setBackground(Color.WHITE);
-        decodeButton.setBorder(compound);
+        decodeButton.setBorder(margin);
         decodeButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
         decodeButton.setText("Decode");
         decodeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +84,7 @@ public class SteganographyUI extends javax.swing.JFrame {
 
         backButton.setForeground(Color.BLACK);
         backButton.setBackground(Color.WHITE);
-        backButton.setBorder(compound);
+        backButton.setBorder(margin);
         backButton.setFont(new java.awt.Font("URW Chancery L", 0, 24)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
