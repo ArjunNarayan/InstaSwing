@@ -63,7 +63,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="encodeButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Border line = new LineBorder(Color.WHITE);&#xa;Border margin = new EmptyBorder(5, 15, 5, 15);&#xa;Border compound = new CompoundBorder(line, margin);&#xa;encodeButton.setForeground(Color.BLACK);&#xa;encodeButton.setBackground(Color.WHITE);&#xa;encodeButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Border line = new LineBorder(Color.WHITE);&#xa;Border margin = new EmptyBorder(5, 15, 5, 15);&#xa;Border compound = new CompoundBorder(line, margin);&#xa;encodeButton.setForeground(Color.BLACK);&#xa;encodeButton.setBackground(Color.WHITE);&#xa;encodeButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="decodeButton">
@@ -77,7 +77,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="decodeButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="decodeButton.setForeground(Color.BLACK);&#xa;decodeButton.setBackground(Color.WHITE);&#xa;decodeButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="decodeButton.setForeground(Color.BLACK);&#xa;decodeButton.setBackground(Color.WHITE);&#xa;decodeButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
@@ -91,7 +91,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="backButton.setForeground(Color.BLACK);&#xa;backButton.setBackground(Color.WHITE);&#xa;backButton.setBorder(compound);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="backButton.setForeground(Color.BLACK);&#xa;backButton.setBackground(Color.WHITE);&#xa;backButton.setBorder(margin);"/>
       </AuxValues>
     </Component>
   </SubComponents>

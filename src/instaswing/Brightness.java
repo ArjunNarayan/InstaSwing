@@ -11,6 +11,7 @@ import jdk.nashorn.internal.parser.TokenType;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import static org.opencv.imgcodecs.Imgcodecs.imread;
+import org.opencv.imgproc.Imgproc;
 
 /**
  *
@@ -27,6 +28,7 @@ public class Brightness {
             beta = (beta/25)*10;
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Mat image = Utility.bufferedToMat(bi);
+        Imgproc.cvtColor(image, image, Imgproc.COLOR_RGB2BGR);
         Mat new_image = Mat.zeros(image.size(), image.type());
         image.convertTo(new_image, -1, 1, beta);
         int width = new_image.width();

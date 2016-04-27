@@ -2,18 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/Brightness.java</file>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/Gamma.java</file>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/Contrast.java</file>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/MainScreen.java</file>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/Steganography.java</file>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/Sharpeness.java</file>
-            <file>file:/home/arjun/NetBeansProjects/InstaSwing/src/instaswing/InstaSwing.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/MainScreen.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/Filters.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/FaceDetection.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/Utility.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/SteganographyUI.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/Steganography.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/Brightness.java</file>
+            <file>file:/home/anuraag/Documents/Projects/InstaSwing/src/instaswing/ImagePanel.java</file>
         </group>
-=======
-        <group/>
->>>>>>> dd58ccc1acf331dae8212ea7abb727b7d70275a7
     </open-files>
 </project-private>
